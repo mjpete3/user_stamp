@@ -1,4 +1,55 @@
 = UserStamp
+Provides the functionality to automatically update records in the database with the logged in users identity.  Alleviates the need to update the user's login_name for every save, update or destroy.
+Simply make sure the correct user related fields are add to the database table, include the UserStamp module in the model for which you want to record the user login name.
 
-This project rocks and uses MIT-LICENSE.
+# Requirements
+Users must be logged into the system so there is a current_user object.  Authentication engines such as Devise provides this object.  
+This gem assumes the user model is named User and there is a field called login_name defined as a string.
 
+If your User model does not have a field called login_name, you will need to add it.
+
+Create a migration and for each model add the following three fields:
+ add_column :created_user, :string
+ add_column :updated_user, :string
+ add_column :destroy_user, :string
+ 
+In each /app/model/file, add the line "include UserStamp".
+
+That's it.
+ 
+# Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'user_stamp'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install user_stamp
+
+# Documentation
+## Wiki Page: https://github.com/mjpete3/user_stamp/wiki
+
+# Deficencies
+This initial gem stores the users login_name using a field called login_name of type string.  
+
+In future versions would like to make it configurable to store either user's login_name, email or id field.
+The login_name and email field should also be setable in a configuration file.
+ 
+
+# License
+
+This library is free software and utilizes the MIT License.  Please refer to the MIT-LICENSE file for details.
+
+
+# Acknowledgments
+
+PD Technology Solutions provides this gem AS-IS with no warrenty.
+
+# Change Log
+
+4/17/15 V0.0.1 - Initial Commit
