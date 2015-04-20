@@ -36,7 +36,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Marty Petersen"]
   s.email       = ["marty.petersen@pd-techsolutions.com"]  
   s.summary     = "Provides the ability to stamp database records with the user name when creating, updating or destroying"
-  s.description = "Preserve the user idenity whwn database records are updated for tracking or audit purposes."
+
+  descript      = "Preserve the user identity when database records are updated for tracking or audit purposes. "
+  descript     += "The models require the addition of 2 fields: created_user, updated_user. The destroy_user is optional (if you are not deleting records).\n"
+  descript     += "The gem uses the current_user object from Devise.  Users are required to be authenticated to the application."
+  s.description = descript
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
