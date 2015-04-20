@@ -1,0 +1,65 @@
+= UserStamp
+Provides the functionality to automatically update records in the database with the logged in users identity.  Alleviates the need to update the identify of the user for every save, update or destroy.
+
+This gem has been build using ruby v2.1.2 and rails 3.2.x
+
+
+== Requirements
+Users must be logged into the system so there is a current_user object.  Authentication engines such as Devise provides this object.  
+By default the identify field is called login_name.  The login_name field is a string in the User model/table.
+
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+    gem 'user_stamp'
+
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install user_stamp
+
+
+== Setup
+  1.   After including the gem in you project, run:
+         rails generate user_stamp install
+       This copies the config file to /config/initilizers/user_stamp.rb
+
+  2.   In the ApplicationController file add the line:
+	     before_filter :set_user_stamp
+
+  3.  In each /app/model/{file}, include UserStamp
+
+  4.  Add the user identity fields to each table.  If you do not need to store one of the fields, simply do not add it to the model.
+      The identity fields must be named: created_user, updated_user and destroy_user.
+      If you are storing the login_name or email, make these fields of type string.
+      If you are storing the id value, then make these field of type integer in the database.
+
+That's it.  Enjoy.
+ 
+
+== Deficencies
+  In future versions the three identity fields should be made configurable.
+  The tree identify field (created_user, updated_user and destory_user) needs to be manually added to each table.  A rails generate script might be included in future versions to automatically create the migration to add the fields.
+  Also a short cut marco needs to be added to ease the adding of the identify fields.   
+
+== License
+
+This library is free software and utilizes the MIT License.  Please refer to the MIT-LICENSE file for details.
+
+
+== Acknowledgments
+
+PD Technology Solutions provides this gem AS-IS with no warrenty.  
+All copyrights, 2015, reserved.  You may fork this code for your own purposes, however credit to PD Technology Solutions must be included.
+
+
+== Change Log
+
+4/19/15 v0.0.2 - First working version completed.
+
+4/17/15 V0.0.1 - Initial Commit

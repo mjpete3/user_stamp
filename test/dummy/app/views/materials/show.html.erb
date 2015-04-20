@@ -1,0 +1,28 @@
+<h1>Materials#show</h1>
+<p>Find me in app/views/materials/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @material.name %>
+</p>
+
+<p>
+  <b>Created user:</b>
+  <%= @material.created_user %>
+</p>
+
+<p>
+  <b>Updated user:</b>
+  <%= @material.updated_user %>
+</p>
+
+<p>
+  <b>Destroy user:</b>
+  <%= @material.destroy_user %>
+</p>
+
+
+<%= link_to 'Edit', edit_material_path(@material) %> |
+<%= link_to 'Back', materials_path %>
