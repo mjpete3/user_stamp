@@ -4,12 +4,12 @@ Provides the functionality to automatically update records in the database with 
 This gem has been build using ruby v2.1.2 and rails 3.2.x
 
 
-# Requirements
+## Requirements
 Users must be logged into the system so there is a current_user object.  Authentication engines such as Devise provides this object.  
 By default the identify field is called login_name.  The login_name field is a string in the User model/table.
 
 
-# Installation
+## Installation
 
 Add this line to your application's Gemfile:
 
@@ -24,7 +24,7 @@ Or install it yourself as:
     $ gem install user_stamp
 
 
-# Setup
+## Setup
   1.   After including the gem in you project, run:
          rails generate user_stamp install
        This copies the config file to /config/initilizers/user_stamp.rb
