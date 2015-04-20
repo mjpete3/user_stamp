@@ -4,7 +4,7 @@ Provides the functionality to automatically update records in the database with 
 This gem has been build using ruby v2.1.2 and rails 3.2.x
 
 
-## Requirements
+= Requirements
 Users must be logged into the system so there is a current_user object.  Authentication engines such as Devise provides this object.  
 By default the identify field is called login_name.  The login_name field is a string in the User model/table.
 
@@ -24,7 +24,7 @@ Or install it yourself as:
     $ gem install user_stamp
 
 
-## Setup
+= Setup
   1.   After including the gem in you project, run:
          rails generate user_stamp install
        This copies the config file to /config/initilizers/user_stamp.rb
@@ -42,17 +42,17 @@ Or install it yourself as:
 That's it.  Enjoy.
  
 
-# Deficencies
+== Deficencies
   In future versions the three identity fields should be made configurable.
   The tree identify field (created_user, updated_user and destory_user) needs to be manually added to each table.  A rails generate script might be included in future versions to automatically create the migration to add the fields.
   Also a short cut marco needs to be added to ease the adding of the identify fields.   
 
-# License
+== License
 
 This library is free software and utilizes the MIT License.  Please refer to the MIT-LICENSE file for details.
 
 
-# Acknowledgments
+== Acknowledgments
 
 PD Technology Solutions provides this gem AS-IS with no warrenty.  
 All copyrights, 2015, reserved.  You may fork this code for your own purposes, however credit to PD Technology Solutions must be included.
