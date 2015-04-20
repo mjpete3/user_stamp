@@ -24,5 +24,17 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
-end
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  email: admin@domain.com
+  login_name: admin
+  encrypted_password: $2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S
+
+two:
+  id: 2
+  email: user@domain.com
+  login_name: user
+  encrypted_password: $2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S
+

@@ -24,5 +24,11 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+class UserStampGenerator < Rails::Generators::NamedBase
+  source_root File.expand_path('../templates', __FILE__)
+  
+  # copies the user_stamp template to the initializer directory
+  def copy_initializer_file
+    copy_file "user_stamp.template", "config/initializers/user_stamp.rb"
+  end
 end

@@ -24,5 +24,17 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+
+module UserStamp
+  module AppController
+    
+    #
+    # Called by the main application using a :before_filter
+    #
+    def set_user_stamp
+      # use the current_user configuration as an object within the main app
+      User.current = self.send(UserStamp.configuration.current_user)
+    end
+
+  end
 end

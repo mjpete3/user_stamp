@@ -24,5 +24,28 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
-end
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  id: 1
+  name: Apple
+  deleted: false
+  created_user: admin
+  updated_user: 
+  destroy_user: 
+
+two:
+  id: 2
+  name: Bannana
+  deleted: false
+  created_user: admin
+  updated_user: admin
+  destroy_user: 
+
+three:
+  id: 3
+  name: Pears
+  deleted: false
+  created_user: admin
+  updated_user: admin
+  destroy_user: admin

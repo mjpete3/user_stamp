@@ -24,5 +24,37 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+require 'active_support/configurable'
+
+module UserStamp
+  #
+  # Configures global settings for UserStamp
+  # UserStamp.configure do |config|
+  #   config.user_field = [:login_name]
+  # end 
+  
+  
+  def self.configuration
+    @config ||= Configuration.new
+  end
+  
+  
+  # Global settings for UserStamp
+  def self.configure
+    yield configuration
+  end
+
+
+  class Configuration
+    include ActiveSupport::Configurable
+    config_accessor :current_user
+    config_accessor :user_field
+    
+    # set the defaults
+    def initialize
+      self.current_user = :current_user
+      self.user_field   = :login_name
+    end  
+  end
+
 end

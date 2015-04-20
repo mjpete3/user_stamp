@@ -24,5 +24,17 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+class Product < ActiveRecord::Base
+  include UserStamp
+  
+  attr_accessible :created_user, :destroy_user, :name, :updated_user, :deleted
+  
+  scope :not_deleted, where(deleted: false)
+  
+  # override the destory method to set the deleted boolean to true.
+  def destroy
+    run_callbacks :destroy do
+      self.update_column(:deleted, true)
+    end
+  end
 end

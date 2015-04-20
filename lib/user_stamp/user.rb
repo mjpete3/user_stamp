@@ -24,5 +24,18 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+module UserStamp
+
+  class User < ActiveRecord::Base
+    # attr_accessible :title, :body
+    
+    def self.current=(user)
+      Thread.current[:current_user] = user
+    end
+    
+    def self.current
+      Thread.current[:current_user]
+    end
+    
+  end
 end

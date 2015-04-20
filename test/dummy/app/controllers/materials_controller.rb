@@ -24,5 +24,60 @@
 #     OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 #     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-module ApplicationHelper
+class MaterialsController < ApplicationController
+  before_filter :authenticate_user!
+  before_filter :set_material, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @materials = Material.all
+    
+    respond_to do |format|
+      format.html
+    end    
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+    end    
+  end
+
+  def new
+    @material = Material.new
+    respond_to do |format|
+      format.html
+    end    
+  end
+
+  def edit
+  end
+
+  def create
+    @material = Material.new(params[:material])
+    @material.save
+
+    respond_to do |format|
+      format.html { redirect_to material_path(@material) }
+    end    
+  end
+
+  def update
+    @material.update_attributes(params[:material])
+    respond_to do |format|
+      format.html { redirect_to material_path(@material) }
+    end    
+  end
+
+  def destroy
+    @material.destroy
+
+    respond_to do |format|
+      format.html { redirect_to materials_path }
+    end    
+  end
+
+  private
+    def set_material
+      @material = Material.find(params[:id])
+    end
 end
