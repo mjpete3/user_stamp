@@ -1,0 +1,8 @@
+Description:
+	Copies the default user_stamp initilizer file in config/initializer
+
+Example:
+	rails generate user_stamp install
+	
+	This will create:
+		config/initializer/user_stamp.rb
