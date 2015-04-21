@@ -8,3 +8,5 @@ test/dummy/.sass-cache
 *.class
 *.pyc
 *.pyo
+.project
+
