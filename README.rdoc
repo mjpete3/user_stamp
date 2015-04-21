@@ -1,4 +1,4 @@
-= UserStamp
+= UserStamp - Rails 4.x Branch
 Provides the functionality to automatically update records in the database with the logged in users identity.  Alleviates the need to update the identify of the user for every save, update or destroy.
 
 There are two different gems, one of Rails 3.2.x and secodn for Rails 4.x.  The two gems were setup to ensure testing was complete.
