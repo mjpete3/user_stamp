@@ -31,6 +31,7 @@ class ProductsControllerTest < ActionController::TestCase
     
   setup do
     @admin = users(:one)
+    @user  = users(:two)
     @product = products(:one)
     
     # set the user_field to :id 
@@ -61,6 +62,7 @@ class ProductsControllerTest < ActionController::TestCase
 
     product = assigns(:product)
     assert_equal product.created_user, @admin.login_name
+    assert_equal product.updated_user, @admin.login_name
     assert_redirected_to product_path(assigns(:product))
   end
 
@@ -77,11 +79,12 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    sign_in @admin
+    sign_in @user
     put :update, id: @product, product: { name: @product.name }
 
     product = assigns(:product)
-    assert_equal product.updated_user, @admin.login_name
+    assert_equal product.created_user, @admin.login_name
+    assert_equal product.updated_user, @user.login_name
 
     assert_redirected_to product_path(assigns(:product))
   end

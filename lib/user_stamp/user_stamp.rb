@@ -33,7 +33,7 @@ module UserStamp
   extend ActiveSupport::Concern
   
   included do
-    before_save    :add_created_and_updated
+    before_create  :add_created_and_updated
     before_update  :add_updated
     before_destroy :add_destroy     
   end

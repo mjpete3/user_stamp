@@ -31,6 +31,7 @@ class MaterialsControllerTest < ActionController::TestCase
     
   setup do
     @admin = users(:one)
+    @user  = users(:two)
     @material = materials(:one)
     
     # set the user_field to :id 
@@ -60,6 +61,7 @@ class MaterialsControllerTest < ActionController::TestCase
 
     material = assigns(:material)
     assert_equal material.created_user, @admin.id
+    assert_equal material.updated_user, @admin.id
     assert_redirected_to material_path(assigns(:material))
   end
 
@@ -76,11 +78,12 @@ class MaterialsControllerTest < ActionController::TestCase
   end
 
   test "should update material" do
-    sign_in @admin
+    sign_in @user
     put :update, id: @material, material: { name: @material.name }
 
     material = assigns(:material)
-    assert_equal material.updated_user, @admin.id
+    assert_equal material.created_user, @admin.id
+    assert_equal material.updated_user, @user.id
 
     assert_redirected_to material_path(assigns(:material))
   end
