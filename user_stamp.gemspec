@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   descript = "Preserve the user identity when database records are updated for tracking or audit purposes."
   descript += "You can configure which field (:id, :email, :login_name) from the current_user object to track.  "
   descript += "The gem uses the current_user object from Devise. Users are required to be authenticated to the application."
-  descript += "For Rails 3.2.x use version 3.x.x.  For Rails4.x use version 4.x.x"
+  descript += "For RAILS 3.2.x use gem version 3.x,  For RAILS 4.x.x use gem version 4.x"  
   s.description = descript    
   s.license     = "MIT"
 
