@@ -13,6 +13,7 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/pkg
 /tmp
 /test/dummy/tmp
 /test/dummy/log
