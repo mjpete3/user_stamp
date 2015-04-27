@@ -1,0 +1,414 @@
+Connecting to database specified by database.yml
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (111.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (111.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (3.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+Migrating to DeviseCreateUsers (20150418012302)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "login_name" varchar(255), "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150418012302')[0m
+  [1m[35m (102.3ms)[0m  commit transaction
+Migrating to CreateProducts (20150418013334)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deleted" boolean DEFAULT 'f', "created_user" varchar(255), "updated_user" varchar(255), "destroy_user" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150418013334')[0m
+  [1m[35m (106.7ms)[0m  commit transaction
+Migrating to CreateMaterials (20150420023321)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "materials" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "deleted" boolean DEFAULT 'f', "created_user" integer, "updated_user" integer, "destroy_user" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20150420023321')[0m
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "materials"
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (1, 'Lumber', 'f', 1, 1, NULL, '2015-04-27 16:58:28', '2015-04-27 16:58:28')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (2, 'Brick', 'f', 1, NULL, NULL, '2015-04-27 16:58:28', '2015-04-27 16:58:28')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (3, 'Nails', 'f', 1, NULL, NULL, '2015-04-27 16:58:28', '2015-04-27 16:58:28')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "products"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (1, 'Apple', 'f', 'admin', NULL, NULL, '2015-04-27 16:58:28', '2015-04-27 16:58:28')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (2, 'Bannana', 'f', 'admin', 'admin', NULL, '2015-04-27 16:58:28', '2015-04-27 16:58:28')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (3, 'Pears', 'f', 'admin', 'admin', 'admin', '2015-04-27 16:58:28', '2015-04-27 16:58:28')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("id", "email", "login_name", "encrypted_password", "created_at", "updated_at") VALUES (1, 'admin@domain.com', 'admin', '$2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S', '2015-04-27 16:58:28', '2015-04-27 16:58:28')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "email", "login_name", "encrypted_password", "created_at", "updated_at") VALUES (2, 'user@domain.com', 'user', '$2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S', '2015-04-27 16:58:28', '2015-04-27 16:58:28')
+  [1m[36m (142.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (3.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "materials" 
+Processing by MaterialsController#create as HTML
+  Parameters: {"material"=>{"name"=>"Lumber"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "materials" ("created_at", "created_user", "deleted", "destroy_user", "name", "updated_at", "updated_user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 27 Apr 2015 16:58:29 UTC +00:00], ["created_user", 1], ["deleted", false], ["destroy_user", nil], ["name", "Lumber"], ["updated_at", Mon, 27 Apr 2015 16:58:29 UTC +00:00], ["updated_user", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/materials/4
+Completed 302 Found in 11.8ms (ActiveRecord: 3.3ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "materials" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "materials" WHERE "materials"."deleted" = 'f'[0m
+Processing by MaterialsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (0.5ms)[0m  UPDATE "materials" SET "deleted" = 't' WHERE "materials"."id" = 1
+Redirected to http://test.host/materials
+Completed 302 Found in 7.0ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "materials" WHERE "materials"."deleted" = 'f'[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered materials/_form.html.erb (19.9ms)
+Completed 200 OK in 112.7ms (Views: 107.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by MaterialsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mMaterial Load (0.2ms)[0m  [1mSELECT "materials".* FROM "materials" [0m
+Completed 200 OK in 13.3ms (Views: 9.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered materials/_form.html.erb (5.2ms)
+Completed 200 OK in 69.7ms (Views: 66.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 9.8ms (Views: 5.5ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by MaterialsController#update as HTML
+  Parameters: {"material"=>{"name"=>"Lumber"}, "id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mUPDATE "materials" SET "updated_user" = 2, "updated_at" = '2015-04-27 16:58:29.529971' WHERE "materials"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/materials/1
+Completed 302 Found in 10.9ms (ActiveRecord: 1.1ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "products" 
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"name"=>"Apple"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "products" ("created_at", "created_user", "deleted", "destroy_user", "name", "updated_at", "updated_user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 27 Apr 2015 16:58:29 UTC +00:00], ["created_user", "admin"], ["deleted", false], ["destroy_user", nil], ["name", "Apple"], ["updated_at", Mon, 27 Apr 2015 16:58:29 UTC +00:00], ["updated_user", "admin"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/4
+Completed 302 Found in 8.8ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" [0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE "products"."deleted" = 'f'[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (0.5ms)[0m  UPDATE "products" SET "deleted" = 't' WHERE "products"."id" = 1
+Redirected to http://test.host/products
+Completed 302 Found in 7.1ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE "products"."deleted" = 'f'[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered products/_form.html.erb (8.5ms)
+Completed 200 OK in 19.3ms (Views: 15.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by ProductsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" [0m
+Completed 200 OK in 12.9ms (Views: 9.0ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered products/_form.html.erb (4.9ms)
+Completed 200 OK in 12.5ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 9.5ms (Views: 5.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"name"=>"Apple"}, "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mUPDATE "products" SET "updated_user" = 'user', "updated_at" = '2015-04-27 16:58:29.704280' WHERE "products"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/1
+Completed 302 Found in 8.7ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mFixture Delete (0.7ms)[0m  DELETE FROM "materials"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (1, 'Lumber', 'f', 1, 1, NULL, '2015-04-27 17:00:46', '2015-04-27 17:00:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (2, 'Brick', 'f', 1, NULL, NULL, '2015-04-27 17:00:46', '2015-04-27 17:00:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "materials" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (3, 'Nails', 'f', 1, NULL, NULL, '2015-04-27 17:00:46', '2015-04-27 17:00:46')[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "products"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (1, 'Apple', 'f', 'admin', NULL, NULL, '2015-04-27 17:00:46', '2015-04-27 17:00:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (2, 'Bannana', 'f', 'admin', 'admin', NULL, '2015-04-27 17:00:46', '2015-04-27 17:00:46')
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "products" ("id", "name", "deleted", "created_user", "updated_user", "destroy_user", "created_at", "updated_at") VALUES (3, 'Pears', 'f', 'admin', 'admin', 'admin', '2015-04-27 17:00:46', '2015-04-27 17:00:46')[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO "users" ("id", "email", "login_name", "encrypted_password", "created_at", "updated_at") VALUES (1, 'admin@domain.com', 'admin', '$2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S', '2015-04-27 17:00:46', '2015-04-27 17:00:46')[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("id", "email", "login_name", "encrypted_password", "created_at", "updated_at") VALUES (2, 'user@domain.com', 'user', '$2a$10$QayP0kUmLS54d20cHXLf4eX/gjqxPC6SyBVOy.q1GnfHoCYSOQl4S', '2015-04-27 17:00:46', '2015-04-27 17:00:46')
+  [1m[36m (86.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.2ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "materials" 
+Processing by MaterialsController#create as HTML
+  Parameters: {"material"=>{"name"=>"Lumber"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "materials" ("created_at", "created_user", "deleted", "destroy_user", "name", "updated_at", "updated_user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 27 Apr 2015 17:00:47 UTC +00:00], ["created_user", 1], ["deleted", false], ["destroy_user", nil], ["name", "Lumber"], ["updated_at", Mon, 27 Apr 2015 17:00:47 UTC +00:00], ["updated_user", 1]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/materials/4
+Completed 302 Found in 10.4ms (ActiveRecord: 2.5ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "materials" [0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "materials" WHERE "materials"."deleted" = 'f'[0m
+Processing by MaterialsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "materials" SET "deleted" = 't' WHERE "materials"."id" = 1
+Redirected to http://test.host/materials
+Completed 302 Found in 6.1ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "materials" WHERE "materials"."deleted" = 'f'[0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered materials/_form.html.erb (38.3ms)
+Completed 200 OK in 62.4ms (Views: 58.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by MaterialsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mMaterial Load (0.2ms)[0m  [1mSELECT "materials".* FROM "materials" [0m
+Completed 200 OK in 11.8ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered materials/_form.html.erb (4.9ms)
+Completed 200 OK in 12.4ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", 1]]
+Processing by MaterialsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mMaterial Load (0.1ms)[0m  SELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 8.0ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by MaterialsController#update as HTML
+  Parameters: {"material"=>{"name"=>"Lumber"}, "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mMaterial Load (0.1ms)[0m  [1mSELECT "materials".* FROM "materials" WHERE "materials"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mUPDATE "materials" SET "updated_user" = 2, "updated_at" = '2015-04-27 17:00:47.268528' WHERE "materials"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/materials/1
+Completed 302 Found in 8.9ms (ActiveRecord: 1.0ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "products" 
+Processing by ProductsController#create as HTML
+  Parameters: {"product"=>{"name"=>"Apple"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "products" ("created_at", "created_user", "deleted", "destroy_user", "name", "updated_at", "updated_user") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Mon, 27 Apr 2015 17:00:47 UTC +00:00], ["created_user", "admin"], ["deleted", false], ["destroy_user", nil], ["name", "Apple"], ["updated_at", Mon, 27 Apr 2015 17:00:47 UTC +00:00], ["updated_user", "admin"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/4
+Completed 302 Found in 7.9ms (ActiveRecord: 1.2ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "products" [0m
+  [1m[35m (0.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE "products"."deleted" = 'f'[0m
+Processing by ProductsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mSQL (0.4ms)[0m  UPDATE "products" SET "deleted" = 't' WHERE "products"."id" = 1
+Redirected to http://test.host/products
+Completed 302 Found in 6.2ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "products" WHERE "products"."deleted" = 'f'[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "1"]]
+  Rendered products/_form.html.erb (9.0ms)
+Completed 200 OK in 19.5ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by ProductsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" [0m
+Completed 200 OK in 11.3ms (Views: 8.3ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  Rendered products/_form.html.erb (5.0ms)
+Completed 200 OK in 11.8ms (Views: 9.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", 1]]
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.1ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1  [["id", "1"]]
+Completed 200 OK in 8.9ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", 1]]
+Processing by ProductsController#update as HTML
+  Parameters: {"product"=>{"name"=>"Apple"}, "id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.1ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mUPDATE "products" SET "updated_user" = 'user', "updated_at" = '2015-04-27 17:00:47.429685' WHERE "products"."id" = 1[0m
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/products/1
+Completed 302 Found in 7.0ms (ActiveRecord: 0.9ms)
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
