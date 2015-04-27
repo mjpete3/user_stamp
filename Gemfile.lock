@@ -3,7 +3,7 @@ PATH
   specs:
     user_stamp (3.0.1)
       devise
-      rails (~> 3.2.21)
+      rails (~> 3.2.0)
 
 GEM
   remote: https://rubygems.org/
