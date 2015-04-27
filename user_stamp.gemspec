@@ -35,19 +35,22 @@ Gem::Specification.new do |s|
   s.version     = UserStamp::VERSION
   s.authors     = ["Marty Petersen"]
   s.email       = ["marty.petersen@pd-techsolutions.com"]
-  s.summary = "Provides the ability to stamp database records with the user name/id/email when creating, updating or destroying"
+  s.summary     = "Provides the ability to stamp database records with the user name/id/email when creating, updating or destroying"
+  s.licenses    = ["MIT"]
+  s.homepage    = "https://www.github.com/mjpete3/user_stamp"
   
-  descript = "Preserve the user identity when database records are updated for tracking or audit purposes."
+  s.required_ruby_version = '>= 1.9.7'
+  
+  descript =  "Preserve the user identity when database records are updated for tracking or audit purposes."
   descript += "You can configure which field (:id, :email, :login_name) from the current_user object to track.  "
   descript += "The gem uses the current_user object from Devise. Users are required to be authenticated to the application."
   descript += "For RAILS 3.2.x use gem version 3.x,  For RAILS 4.x.x use gem version 4.x"  
-  s.description = descript    
-  s.license     = "MIT"
+  s.description = descript  
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.1"
+  s.add_dependency "rails", ">= 4.0.1"
   s.add_dependency "devise"
   
   s.add_development_dependency "sqlite3"
